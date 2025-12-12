@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title></title>
+  <meta name="description" content="Halaman contoh memasukkan variabel JS dan memuat script eksternal." />
+  <style>
+    /* Styling minimal supaya tampil rapi */
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 0; padding: 32px; background:#0f1722; color:#e6eef8; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+    .card { background:#0b1220; border:1px solid rgba(255,255,255,.04); padding:24px; border-radius:12px; max-width:720px; width:100%; box-shadow:0 6px 24px rgba(2,6,23,.6); }
+    pre { background:#071024; padding:12px; border-radius:8px; overflow:auto; font-size:13px; color:#9bd0ff; }
+    .note { margin-top:12px; font-size:13px; color:#9aa7bd; }
+    a { color: #7ad1ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1 style="margin:0 0 8px 0; font-size:18px;">Contoh HTML dengan script eksternal</h1>
+    <p style="margin:0 0 16px 0; color:#bcd6f7; line-height:1.4;">
+      Halaman ini menaruh variabel JS lalu memuat skrip eksternal. Jika fungsi <code>_Pg</code> tersedia dari skrip tersebut, akan dipanggil secara aman.
+    </p>
+
+    <pre>&lt;script type="text/javascript"&gt;
+  var wtaCj_dWQ_MeoCpc = {"it":4574332,"key":"0b4a8"};
+&lt;/script&gt;
+&lt;script src="https://duw03nk63ml3f.cloudfront.net/b520fb7.js" async&gt;&lt;/script&gt;
+&lt;script&gt;
+  // panggil _Pg() jika sudah tersedia, kalau belum tunggu sampai load
+  function safeCall_Pg() {
+    try {
+      if (typeof _Pg === 'function') {
+        _Pg();
+      } else {
+        console.warn('_Pg belum didefinisikan oleh skrip eksternal.');
+      }
+    } catch (e) {
+      console.error('Error memanggil _Pg():', e);
+    }
+  }
+  // jika skrip sudah ter-load
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    safeCall_Pg();
+  } else {
+    window.addEventListener('load', safeCall_Pg, { once: true });
+  }
+&lt;/script&gt;</pre>
+
+    <p class="note">Catatan: URL skrip adalah eksternal — pastikan sumber tepercaya. Jika mau, ganti atribut <code>async</code> dengan <code>defer</code> sesuai kebutuhan.</p>
+    <p class="note">Tidak ada fungsi <code>_Pg</code> dalam HTML ini sendiri; fungsi dihasilkan oleh skrip eksternal.</p>
+  </main>
+</body>
+ 
+ <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4781172,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4781172&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+</html>
