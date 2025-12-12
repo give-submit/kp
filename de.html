@@ -15,40 +15,12 @@
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1 style="margin:0 0 8px 0; font-size:18px;">Contoh HTML dengan script eksternal</h1>
-    <p style="margin:0 0 16px 0; color:#bcd6f7; line-height:1.4;">
-      Halaman ini menaruh variabel JS lalu memuat skrip eksternal. Jika fungsi <code>_Pg</code> tersedia dari skrip tersebut, akan dipanggil secara aman.
-    </p>
+ <script type="text/javascript">
+    var wtaCj_dWQ_MeoCpc={"it":4574332,"key":"0b4a8"};
+</script>
+<script src="https://duw03nk63ml3f.cloudfront.net/b520fb7.js"></script>
 
-    <pre>&lt;script type="text/javascript"&gt;
-  var wtaCj_dWQ_MeoCpc = {"it":4574332,"key":"0b4a8"};
-&lt;/script&gt;
-&lt;script src="https://duw03nk63ml3f.cloudfront.net/b520fb7.js" async&gt;&lt;/script&gt;
-&lt;script&gt;
-  // panggil _Pg() jika sudah tersedia, kalau belum tunggu sampai load
-  function safeCall_Pg() {
-    try {
-      if (typeof _Pg === 'function') {
-        _Pg();
-      } else {
-        console.warn('_Pg belum didefinisikan oleh skrip eksternal.');
-      }
-    } catch (e) {
-      console.error('Error memanggil _Pg():', e);
-    }
-  }
-  // jika skrip sudah ter-load
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    safeCall_Pg();
-  } else {
-    window.addEventListener('load', safeCall_Pg, { once: true });
-  }
-&lt;/script&gt;</pre>
-
-    <p class="note">Catatan: URL skrip adalah eksternal — pastikan sumber tepercaya. Jika mau, ganti atribut <code>async</code> dengan <code>defer</code> sesuai kebutuhan.</p>
-    <p class="note">Tidak ada fungsi <code>_Pg</code> dalam HTML ini sendiri; fungsi dihasilkan oleh skrip eksternal.</p>
-  </main>
+  <script>_Pg();</script>
 </body>
  
  <!-- Histats.com  START  (aync)-->
